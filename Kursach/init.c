@@ -17,7 +17,6 @@ void initialize() {
         printf("SDL_mixer init error: %s\n", Mix_GetError());
         return;
     }
-
     window = SDL_CreateWindow("Arkanoid",
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,
@@ -77,20 +76,16 @@ void initialize() {
     paddle.wide = false;
     paddle.fast = false;
     paddle.fastEndTime = 0;
-
     resetBall();
-
     for (int i = 0; i < MAX_BLOCKS; i++) {
         blocks[i].active = false;
     }
     for (int i = 0; i < MAX_BONUSES; i++) {
         bonuses[i].active = false;
     }
-
     srand(time(NULL));
     loadLevel(1);
 }
-
 void cleanUp() {
     if (font) TTF_CloseFont(font);
     if (rulesFont && rulesFont != font) TTF_CloseFont(rulesFont);
@@ -104,7 +99,6 @@ void cleanUp() {
     if (rulesBackground) SDL_DestroyTexture(rulesBackground);
     if (renderer) SDL_DestroyRenderer(renderer);
     if (window) SDL_DestroyWindow(window);
-
     Mix_CloseAudio();
     TTF_Quit();
     SDL_Quit();

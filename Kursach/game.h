@@ -61,7 +61,7 @@ typedef struct {
     float velX, velY;
     bool launched;
     bool canPierce;
-    Uint32 pierceEndTime;
+    int pierceEndTime;
 } Ball;
 
 typedef struct {
@@ -71,6 +71,7 @@ typedef struct {
     bool wide;
     bool fast;
     Uint32 fastEndTime;
+    Uint32 wideEndTime;
 } Paddle;
 
 /* GLOBAL VARIABLES */
@@ -86,17 +87,14 @@ extern Mix_Chunk* bounceSound;
 extern SDL_Texture* menuBackground;
 extern SDL_Texture* gameBackground;
 extern SDL_Texture* rulesBackground;
-
 extern Block blocks[MAX_BLOCKS];
 extern Bonus bonuses[MAX_BONUSES];
 extern Ball ball;
 extern Paddle paddle;
-
 extern int score;
 extern int lives;
 extern int currentLevel;
 extern int blocksActive;
-
 extern bool gameRunning;
 extern bool gamePaused;
 extern bool inMenu;

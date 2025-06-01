@@ -6,14 +6,12 @@
 
 void update() {
     if (!ball.launched) {
-        ball.rect.x = paddle.rect.x + paddle.rect.w / 2 - BALL_SIZE / 2;
+        ball.rect.x = paddle.rect.x + paddle.rect.w / 2 - BALL_SIZE / 2; //м€ч в начале
         return;
     }
-
     ball.rect.x += ball.velX;
     ball.rect.y += ball.velY;
 
-    // Wall collisions
     if (ball.rect.x <= 0) {
         ball.rect.x = 0;
         ball.velX = -ball.velX;
@@ -35,33 +33,27 @@ void update() {
         lives--;
         if (lives <= 0) {
             inMenu = true;
-            Mix_HaltMusic();
+            updateMusic();
         }
         else {
             resetBall();
         }
     }
-
-    // Update bonuses
     for (int i = 0; i < MAX_BONUSES; i++) {
         if (bonuses[i].active) {
             bonuses[i].rect.y += bonuses[i].speed;
-
             if (SDL_HasIntersection(&bonuses[i].rect, &paddle.rect)) {
                 activateBonus(bonuses[i].type);
                 bonuses[i].active = false;
                 playBounceSound();
             }
-
             if (bonuses[i].rect.y > SCREEN_HEIGHT) {
                 bonuses[i].active = false;
             }
         }
     }
-
     checkCollisions();
     checkTimedEffects();
-
     if (blocksActive == 0) {
         if (currentLevel < 3) {
             loadLevel(currentLevel + 1);
@@ -74,23 +66,18 @@ void update() {
 }
 
 void checkCollisions() {
-    // Paddle collision
     if (SDL_HasIntersection(&ball.rect, &paddle.rect)) {
         float hitPos = (ball.rect.x + BALL_SIZE / 2) - (paddle.rect.x + paddle.rect.w / 2);
         float normalizedHitPos = hitPos / (paddle.rect.w / 2);
         normalizedHitPos = fmaxf(-0.9f, fminf(0.9f, normalizedHitPos));
-
         float angle = normalizedHitPos * (MAX_REFLECTION_ANGLE * M_PI / 180.0f);
         float speed = sqrt(ball.velX * ball.velX + ball.velY * ball.velY);
         ball.velX = sin(angle) * speed;
         ball.velY = -cos(angle) * speed;
         ball.velY = -fabs(ball.velY);
-
         normalizeBallSpeed();
         playBounceSound();
     }
-
-    // Block collisions
     bool collisionOccurred = false;
     for (int i = 0; i < MAX_BLOCKS; i++) {
         if (blocks[i].active && SDL_HasIntersection(&ball.rect, &blocks[i].rect)) {
@@ -107,21 +94,16 @@ void checkCollisions() {
                         blocks[i].rect.y + BLOCK_HEIGHT);
                 }
             }
-
             float speedBefore = sqrt(ball.velX * ball.velX + ball.velY * ball.velY);
-
             if (!ball.canPierce) {
                 int ballCenterX = ball.rect.x + BALL_SIZE / 2;
                 int ballCenterY = ball.rect.y + BALL_SIZE / 2;
                 int blockCenterX = blocks[i].rect.x + BLOCK_WIDTH / 2;
                 int blockCenterY = blocks[i].rect.y + BLOCK_HEIGHT / 2;
-
                 int dx = ballCenterX - blockCenterX;
                 int dy = ballCenterY - blockCenterY;
-
                 float overlapX = (BALL_SIZE / 2 + BLOCK_WIDTH / 2) - abs(dx);
                 float overlapY = (BALL_SIZE / 2 + BLOCK_HEIGHT / 2) - abs(dy);
-
                 if (overlapX >= overlapY) {
                     ball.velY = -ball.velY;
                     if (dy > 0) {
@@ -199,6 +181,7 @@ void activateBonus(BonusType type) {
     case WIDE_PADDLE:
         paddle.wide = true;
         paddle.rect.w = paddle.originalWidth * 1.5;
+        paddle.wideEndTime = currentTime + 6000;
         break;
     case FAST_PADDLE:
         paddle.fast = true;
@@ -310,6 +293,11 @@ void loadLevel(int level) {
 
 void checkTimedEffects() {
     Uint32 currentTime = SDL_GetTicks();
+
+    if (paddle.wide && currentTime >= paddle.wideEndTime) {
+        paddle.rect.w = paddle.originalWidth;
+        paddle.wide = false;
+    }
 
     if (paddle.fast && currentTime >= paddle.fastEndTime) {
         paddle.speed = 8;

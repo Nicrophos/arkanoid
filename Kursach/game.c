@@ -1,6 +1,4 @@
 #include "game.h"
-
-/* Initialize global variables */
 const SDL_Color WHITE = { 255, 255, 255, 255 };
 const SDL_Color BLACK = { 0, 0, 0, 255 };
 const SDL_Color RED = { 255, 0, 0, 255 };
@@ -9,7 +7,6 @@ const SDL_Color BLUE = { 0, 0, 255, 255 };
 const SDL_Color YELLOW = { 255, 255, 0, 255 };
 const SDL_Color ORANGE = { 255, 165, 0, 255 };
 const SDL_Color PURPLE = { 128, 0, 128, 255 };
-
 SDL_Window* window = NULL;
 SDL_Renderer* renderer = NULL;
 TTF_Font* font = NULL;
@@ -22,17 +19,14 @@ Mix_Chunk* bounceSound = NULL;
 SDL_Texture* menuBackground = NULL;
 SDL_Texture* gameBackground = NULL;
 SDL_Texture* rulesBackground = NULL;
-
 Block blocks[MAX_BLOCKS];
 Bonus bonuses[MAX_BONUSES];
 Ball ball;
 Paddle paddle;
-
 int score = 0;
 int lives = 3;
 int currentLevel = 1;
 int blocksActive = 0;
-
 bool gameRunning = true;
 bool gamePaused = false;
 bool inMenu = true;

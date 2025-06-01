@@ -24,19 +24,10 @@ void renderMenu() {
     if (menuBackground) {
         SDL_RenderCopy(renderer, menuBackground, NULL, NULL);
     }
-    else {
-        for (int y = 0; y < SCREEN_HEIGHT; y++) {
-            int blue = 50 + (y * 100 / SCREEN_HEIGHT);
-            SDL_SetRenderDrawColor(renderer, 0, 0, blue, 255);
-            SDL_RenderDrawLine(renderer, 0, y, SCREEN_WIDTH, y);
-        }
-    }
-
     SDL_Color color = WHITE;
     SDL_Surface* surface;
     SDL_Texture* texture;
     SDL_Rect rect;
-
     const char* menuItems[] = {
         "1. New Game",
         "2. How to Play",
@@ -51,7 +42,7 @@ void renderMenu() {
             texture = SDL_CreateTextureFromSurface(renderer, surface);
             rect.x = SCREEN_WIDTH / 2 - 100;
             rect.y = 200 + i * 40;
-            rect.w = 200;
+            rect.w = 150;
             rect.h = 30;
             SDL_RenderCopy(renderer, texture, NULL, &rect);
             SDL_DestroyTexture(texture);
@@ -86,27 +77,19 @@ void renderMenu() {
         SDL_FreeSurface(surface);
     }
 }
-
 void renderRules() {
     if (rulesBackground) {
         SDL_RenderCopy(renderer, rulesBackground, NULL, NULL);
     }
-    else {
-        SDL_SetRenderDrawColor(renderer, 0, 0, 50, 255);
-        SDL_RenderClear(renderer);
-    }
-
     SDL_Color color = WHITE;
     SDL_Surface* surface;
     SDL_Texture* texture;
     SDL_Rect rect;
-
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 180);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     SDL_Rect overlay = { 50, 50, SCREEN_WIDTH - 100, SCREEN_HEIGHT - 100 };
     SDL_RenderFillRect(renderer, &overlay);
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
-
     surface = TTF_RenderText_Solid(font, "HOW TO PLAY", color);
     if (surface) {
         texture = SDL_CreateTextureFromSurface(renderer, surface);
@@ -137,7 +120,6 @@ void renderRules() {
         "  * Blue: Wider paddle",
         "  * Yellow: Speed boost (5 sec)",
         "  * Purple: Pierce shot (3 sec)",
-        "",
         "Press 2 to return to menu"
     };
 
@@ -166,12 +148,10 @@ void renderGame() {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
     }
-
-    // Paddle
+    //платформа
     SDL_SetRenderDrawColor(renderer, GREEN.r, GREEN.g, GREEN.b, GREEN.a);
     SDL_RenderFillRect(renderer, &paddle.rect);
-
-    // Ball
+    //шарик
     if (ball.canPierce) {
         SDL_SetRenderDrawColor(renderer, PURPLE.r, PURPLE.g, PURPLE.b, PURPLE.a);
     }
@@ -179,8 +159,7 @@ void renderGame() {
         SDL_SetRenderDrawColor(renderer, WHITE.r, WHITE.g, WHITE.b, WHITE.a);
     }
     SDL_RenderFillRect(renderer, &ball.rect);
-
-    // Bricks
+    //блоки
     for (int i = 0; i < MAX_BLOCKS; i++) {
         if (blocks[i].active) {
             switch (blocks[i].type) {
@@ -219,7 +198,7 @@ void renderGame() {
         }
     }
 
-    // Power-ups
+    //бонусы
     for (int i = 0; i < MAX_BONUSES; i++) {
         if (bonuses[i].active) {
             switch (bonuses[i].type) {
@@ -246,7 +225,7 @@ void renderGame() {
 
     if (gamePaused) {
         SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 128);
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 200);
         SDL_Rect overlay = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
         SDL_RenderFillRect(renderer, &overlay);
 
@@ -269,14 +248,14 @@ void renderHUD() {
     SDL_Texture* texture;
     SDL_Rect rect;
 
-    // Create semi-transparent HUD background
+    //фон меню
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 128);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 50);
     SDL_Rect hudBackground = { 0, SCREEN_HEIGHT - 90, SCREEN_WIDTH, 90 };
     SDL_RenderFillRect(renderer, &hudBackground);
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
 
-    // Score
+    //счет
     snprintf(text, 50, "Score: %d", score);
     surface = TTF_RenderText_Solid(font, text, color);
     if (surface) {
@@ -290,7 +269,7 @@ void renderHUD() {
         SDL_FreeSurface(surface);
     }
 
-    // Lives
+    //хп
     snprintf(text, 50, "Lives: %d", lives);
     surface = TTF_RenderText_Solid(font, text, color);
     if (surface) {
@@ -304,7 +283,7 @@ void renderHUD() {
         SDL_FreeSurface(surface);
     }
 
-    // Level
+   //лвл
     snprintf(text, 50, "Level: %d", currentLevel);
     surface = TTF_RenderText_Solid(font, text, color);
     if (surface) {
@@ -318,7 +297,7 @@ void renderHUD() {
         SDL_FreeSurface(surface);
     }
 
-    // Music and sound status
+    //меню (кнопки) звука и музыки
     const char* musicStatus = musicEnabled ? "Music: ON (M)" : "Music: OFF (M)";
     const char* soundStatus = soundEnabled ? "Sound: ON (S)" : "Sound: OFF (S)";
 
@@ -359,7 +338,7 @@ void renderHUD() {
         SDL_FreeSurface(surface);
     }
 
-    // Menu hint
+   //меню
     surface = TTF_RenderText_Solid(rulesFont, "Menu: ESC", color);
     if (surface) {
         texture = SDL_CreateTextureFromSurface(renderer, surface);
@@ -372,7 +351,20 @@ void renderHUD() {
         SDL_FreeSurface(surface);
     }
 
-    // Show active effects
+    //уведы о бонусах
+    if (paddle.wide) {
+        surface = TTF_RenderText_Solid(rulesFont, "WIDE PADDLE", BLUE);
+        if (surface) {
+            texture = SDL_CreateTextureFromSurface(renderer, surface);
+            rect.x = SCREEN_WIDTH / 2 - 60;
+            rect.y = SCREEN_HEIGHT - 120;
+            rect.w = 120;
+            rect.h = 20;
+            SDL_RenderCopy(renderer, texture, NULL, &rect);
+            SDL_DestroyTexture(texture);
+            SDL_FreeSurface(surface);
+        }
+    }
     if (ball.canPierce) {
         surface = TTF_RenderText_Solid(rulesFont, "PIERCE MODE!", PURPLE);
         if (surface) {

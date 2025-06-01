@@ -5,18 +5,15 @@ void playBounceSound() {
         Mix_PlayChannel(-1, bounceSound, 0);
     }
 }
-
 void updateMusic() {
     if (!musicEnabled) {
         Mix_HaltMusic();
         return;
     }
-
-    // Остановить текущую музыку перед переключением
     Mix_HaltMusic();
 
     if (inMenu) {
-        Mix_PlayMusic(menuMusic, -1);  // -1 для зацикливания
+        Mix_PlayMusic(menuMusic, -1);  
     }
     else {
         switch (currentLevel) {
@@ -27,12 +24,10 @@ void updateMusic() {
         }
     }
 }
-
 void toggleMusic() {
     musicEnabled = !musicEnabled;
-    updateMusic();  // Используем единую функцию управления
+    updateMusic();
 }
-
 void toggleSound() {
     soundEnabled = !soundEnabled;
 }   

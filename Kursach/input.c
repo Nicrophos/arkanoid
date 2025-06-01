@@ -8,7 +8,6 @@ void processInput() {
         if (e.type == SDL_QUIT) {
             gameRunning = false;
         }
-
         if (e.type == SDL_KEYDOWN) {
             if (inMenu) {
                 switch (e.key.keysym.sym) {
@@ -48,7 +47,7 @@ void processInput() {
                     break;
                 case SDLK_ESCAPE:
                     inMenu = true;
-                    Mix_HaltMusic();
+                    updateMusic();
                     break;
                 case SDLK_m:
                     toggleMusic();
@@ -69,11 +68,9 @@ void processInput() {
             }
         }
     }
-
     if (!inMenu && !gamePaused) {
         const Uint8* keystates = SDL_GetKeyboardState(NULL);
-
-        if (keystates[SDL_SCANCODE_LEFT]) {
+        if (keystates[SDL_SCANCODE_LEFT]) { 
             paddle.rect.x -= paddle.speed;
             if (paddle.rect.x < 0) paddle.rect.x = 0;
         }
