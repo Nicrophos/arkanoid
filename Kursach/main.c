@@ -6,7 +6,8 @@
 
 int main(int argc, char* argv[]) {
     initialize();
-
+    inMenu = true; 
+    updateMusic();
     while (gameRunning) {
         processInput();
 

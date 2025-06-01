@@ -6,6 +6,6 @@
 
 void playBounceSound();
 void toggleMusic();
-void toggleSound();
-
+void toggleSound(); 
+void updateMusic();
 #endif

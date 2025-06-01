@@ -46,7 +46,9 @@ void initialize() {
     lvl1music = Mix_LoadMUS("lvl1music.wav");
     lvl2music = Mix_LoadMUS("lvl2music.wav");
     lvl3music = Mix_LoadMUS("lvl3music.wav");
-
+    if (musicEnabled) {
+        updateMusic();
+    }
     if (!menuMusic || !lvl1music || !lvl2music || !lvl3music) {
         printf("Failed to load music files! Error: %s\n", Mix_GetError());
     }
