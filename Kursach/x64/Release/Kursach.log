@@ -1,0 +1,60 @@
+﻿  init.c
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\init.c(72,5): warning C4013: resetBall: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\init.c(81,5): warning C4013: srand: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\init.c(82,5): warning C4013: loadLevel: нет определения; предполагается "extern" с возвратом типа "int"
+  input.c
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\input.c(41,38): warning C4013: rand: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\input.c(41,50): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  physics.c
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\physics.c(5,26): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+  render.c
+  sound.c
+  game.c
+  update.c
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(13,24): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(14,24): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(85,32): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(86,33): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(87,21): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(105,49): warning C4013: rand: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(128,40): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(131,40): warning C4244: -=: преобразование "float" в "int", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(137,40): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(140,40): warning C4244: -=: преобразование "float" в "int", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(79,54): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(83,40): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(84,23): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(111,33): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(122,68): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(123,69): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(145,32): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(201,46): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(206,22): warning C4305: *=: усечение из "double" в "float"
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(207,22): warning C4305: *=: усечение из "double" в "float"
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\update.c(310,30): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+  Source.cpp
+Source.obj : error LNK2001: неразрешенный внешний символ "void __cdecl initialize(void)" (?initialize@@YAXXZ).
+    Указание на символы, которые определены и могут подойти:
+      initialize
+Source.obj : error LNK2001: неразрешенный внешний символ "void __cdecl update(void)" (?update@@YAXXZ).
+    Указание на символы, которые определены и могут подойти:
+      update
+Source.obj : error LNK2001: неразрешенный внешний символ "bool inMenu" (?inMenu@@3_NA).
+    Указание на символы, которые определены и могут подойти:
+      inMenu
+Source.obj : error LNK2001: неразрешенный внешний символ "bool gameRunning" (?gameRunning@@3_NA).
+    Указание на символы, которые определены и могут подойти:
+      gameRunning
+Source.obj : error LNK2001: неразрешенный внешний символ "void __cdecl processInput(void)" (?processInput@@YAXXZ).
+    Указание на символы, которые определены и могут подойти:
+      processInput
+Source.obj : error LNK2001: неразрешенный внешний символ "bool gamePaused" (?gamePaused@@3_NA).
+    Указание на символы, которые определены и могут подойти:
+      gamePaused
+Source.obj : error LNK2001: неразрешенный внешний символ "void __cdecl render(void)" (?render@@YAXXZ).
+    Указание на символы, которые определены и могут подойти:
+      render
+Source.obj : error LNK2001: неразрешенный внешний символ "void __cdecl cleanUp(void)" (?cleanUp@@YAXXZ).
+    Указание на символы, которые определены и могут подойти:
+      cleanUp
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\x64\Release\Kursach.exe : fatal error LNK1120: неразрешенных внешних элементов: 8

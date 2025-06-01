@@ -1,0 +1,5 @@
+﻿  init.c
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\init.c(79,5): warning C4013: resetBall: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\init.c(88,5): warning C4013: srand: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\Kireii\Desktop\Kursovaya\Kursach\Kursach\init.c(89,5): warning C4013: loadLevel: нет определения; предполагается "extern" с возвратом типа "int"
+  Kursach.vcxproj -> C:\Users\Kireii\Desktop\Kursovaya\Kursach\x64\Debug\Kursach.exe
