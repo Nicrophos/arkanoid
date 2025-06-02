@@ -114,10 +114,10 @@ void renderRules() {
         "",
         "Features:",
         "- 3 difficulty levels",
-        "- Different brick types: standard, strong, bonus",
+        "- Different brick types: standard, bonus, strong",
         "- Power-ups:",
         "  * Red: Extra life",
-        "  * Blue: Wider paddle",
+        "  * Blue: Wider paddle (6 sec)",
         "  * Yellow: Speed boost (5 sec)",
         "  * Purple: Pierce shot (3 sec)",
         "Press 2 to return to menu"
@@ -325,7 +325,7 @@ void renderHUD() {
         SDL_FreeSurface(surface);
     }
 
-    // Pause hint
+    //пауза
     surface = TTF_RenderText_Solid(rulesFont, "Pause: P", color);
     if (surface) {
         texture = SDL_CreateTextureFromSurface(renderer, surface);

@@ -1,4 +1,4 @@
-#include "init.h"
+#include "initialization.h"
 #include <stdio.h>
 #include <time.h>
 
@@ -17,7 +17,7 @@ void initialize() {
         printf("SDL_mixer init error: %s\n", Mix_GetError());
         return;
     }
-    window = SDL_CreateWindow("Arkanoid",
+    window = SDL_CreateWindow("ARKANOID",
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,
         SCREEN_WIDTH,

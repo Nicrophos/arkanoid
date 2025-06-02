@@ -1,6 +1,6 @@
 #pragma once
-#ifndef UPDATE_H
-#define UPDATE_H
+#ifndef LOGICS_H
+#define LOGICS_H
 
 #include "game.h"
 

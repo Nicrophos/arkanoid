@@ -127,27 +127,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="init.c" />
+    <ClCompile Include="initialization.c" />
     <ClCompile Include="input.c" />
     <ClCompile Include="physics.c" />
     <ClCompile Include="render.c" />
     <ClCompile Include="sound.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="game.c" />
-    <ClCompile Include="update.c" />
+    <ClCompile Include="logics.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
-    <ClInclude Include="init.h" />
+    <ClInclude Include="initialization.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="physics.h" />
     <ClInclude Include="render.h" />
     <ClInclude Include="SDL_mixer.h" />
     <ClInclude Include="sound.h" />
-    <ClInclude Include="update.h" />
+    <ClInclude Include="logics.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="SDL2_mixer.lib" />

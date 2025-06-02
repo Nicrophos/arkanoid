@@ -1,4 +1,4 @@
-#include "update.h"
+#include "logics.h"
 #include "sound.h"
 #include "physics.h"
 #include <math.h>
@@ -75,7 +75,6 @@ void checkCollisions() {
         ball.velX = sin(angle) * speed;
         ball.velY = -cos(angle) * speed;
         ball.velY = -fabs(ball.velY);
-        normalizeBallSpeed();
         playBounceSound();
     }
     bool collisionOccurred = false;
@@ -88,7 +87,6 @@ void checkCollisions() {
                 blocks[i].active = false;
                 blocksActive--;
                 score += (blocks[i].type == STRONG) ? 200 : 100;
-
                 if (blocks[i].type == BONUS || (rand() % 100) < 15) {
                     spawnBonus(blocks[i].rect.x + BLOCK_WIDTH / 2,
                         blocks[i].rect.y + BLOCK_HEIGHT);
@@ -173,7 +171,6 @@ void spawnBonus(int x, int y) {
 
 void activateBonus(BonusType type) {
     Uint32 currentTime = SDL_GetTicks();
-
     switch (type) {
     case EXTRA_LIFE:
         lives++;
@@ -210,7 +207,6 @@ void resetBall() {
     ball.launched = false;
     ball.canPierce = false;
 }
-
 void resetPaddle() {
     paddle.rect.x = SCREEN_WIDTH / 2 - paddle.rect.w / 2;
     paddle.rect.y = PADDLE_Y_POSITION;

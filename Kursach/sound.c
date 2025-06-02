@@ -11,7 +11,6 @@ void updateMusic() {
         return;
     }
     Mix_HaltMusic();
-
     if (inMenu) {
         Mix_PlayMusic(menuMusic, -1);  
     }

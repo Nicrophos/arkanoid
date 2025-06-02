@@ -1,7 +1,7 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
-#include "init.h"
+#include "initialization.h"
 #include "input.h"
-#include "update.h"
+#include "logics.h"
 #include "render.h"
 
 int main(int argc, char* argv[]) {

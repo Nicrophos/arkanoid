@@ -3,7 +3,6 @@
 
 void normalizeBallSpeed() {
     float currentSpeed = sqrt(ball.velX * ball.velX + ball.velY * ball.velY);
-
     if (currentSpeed < MIN_BALL_SPEED) {
         float ratio = MIN_BALL_SPEED / currentSpeed;
         ball.velX *= ratio;

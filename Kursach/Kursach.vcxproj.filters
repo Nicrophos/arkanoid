@@ -21,13 +21,13 @@
     <ClCompile Include="game.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="init.c">
+    <ClCompile Include="initialization.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="input.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="update.c">
+    <ClCompile Include="logics.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="render.c">
@@ -50,13 +50,13 @@
     <ClInclude Include="game.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="init.h">
+    <ClInclude Include="initialization.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
     <ClInclude Include="input.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="update.h">
+    <ClInclude Include="logics.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
     <ClInclude Include="render.h">

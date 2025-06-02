@@ -1,6 +1,6 @@
 #include "input.h"
 #include "sound.h"
-#include "update.h"
+#include "logics.h"
 
 void processInput() {
     SDL_Event e;

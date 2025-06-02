@@ -1,2 +1,24 @@
-﻿  render.c
+﻿  logics.c
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(12,24): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(13,24): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(75,32): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(76,33): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(77,21): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(90,49): warning C4013: rand: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(108,40): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(111,40): warning C4244: -=: преобразование "float" в "int", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(117,40): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(120,40): warning C4244: -=: преобразование "float" в "int", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(70,54): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(73,40): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(74,23): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(95,33): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(103,68): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(104,69): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(125,32): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(180,46): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(186,22): warning C4305: *=: усечение из "double" в "float"
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(187,22): warning C4305: *=: усечение из "double" в "float"
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(310,39): warning C4018: >=: несоответствие типов со знаком и без знака
+C:\Users\Kireii\Desktop\КУРСАЧ\Kursach\logics.c(302,30): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
   Kursach.vcxproj -> C:\Users\Kireii\Desktop\КУРСАЧ\x64\Debug\Kursach.exe

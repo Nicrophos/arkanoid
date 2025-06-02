@@ -25,9 +25,6 @@
 #define MAX_REFLECTION_ANGLE 60.0f
 #define FAST_EFFECT_DURATION 5000
 #define PIERCE_EFFECT_DURATION 3000
-
-/* COLORS */
-
 extern const SDL_Color WHITE;
 extern const SDL_Color BLACK;
 extern const SDL_Color RED;
@@ -36,26 +33,20 @@ extern const SDL_Color BLUE;
 extern const SDL_Color YELLOW;
 extern const SDL_Color ORANGE;
 extern const SDL_Color PURPLE;
-
-/* ENUMS */
 typedef enum { STANDARD, STRONG, BONUS } BlockType;
 typedef enum { EXTRA_LIFE, WIDE_PADDLE, FAST_PADDLE, PIERCE_BALL, NONE } BonusType;
-
-/* STRUCTURES */
 typedef struct {
     SDL_Rect rect;
     BlockType type;
     int hits;
     bool active;
 } Block;
-
 typedef struct {
     SDL_Rect rect;
     BonusType type;
     bool active;
     int speed;
 } Bonus;
-
 typedef struct {
     SDL_Rect rect;
     float velX, velY;
@@ -63,7 +54,6 @@ typedef struct {
     bool canPierce;
     int pierceEndTime;
 } Ball;
-
 typedef struct {
     SDL_Rect rect;
     int originalWidth;
@@ -73,8 +63,6 @@ typedef struct {
     Uint32 fastEndTime;
     Uint32 wideEndTime;
 } Paddle;
-
-/* GLOBAL VARIABLES */
 extern SDL_Window* window;
 extern SDL_Renderer* renderer;
 extern TTF_Font* font;
@@ -101,5 +89,4 @@ extern bool inMenu;
 extern bool showRules;
 extern bool musicEnabled;
 extern bool soundEnabled;
-
 #endif
